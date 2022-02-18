@@ -1,5 +1,5 @@
-import { NestFactory, Reflector } from "@nestjs/core";
-import { ClassSerializerInterceptor, Logger } from "@nestjs/common";
+import { NestFactory, Reflector } from '@nestjs/core';
+import { ClassSerializerInterceptor, Logger } from '@nestjs/common';
 
 import { GatewayConfigService } from '@jump/config';
 
@@ -17,7 +17,7 @@ async function bootstrap() {
   await app.listen(config.port);
 
   Logger.log(
-    `🚀 Jump API Application is running on: ${config.protocol}://${config.host}:${config.port}/${config.prefix}`,
+    `Jump API Application is running on: ${config.protocol}://${config.host}:${config.port}/${config.prefix}`,
   );
 }
 bootstrap();
