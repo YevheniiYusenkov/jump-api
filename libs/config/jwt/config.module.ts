@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
-import { GatewayConfigService } from './config.service';
+import { JwtConfigService } from './config.service';
 import { Config } from './config';
 
 @Module({
@@ -12,8 +12,8 @@ import { Config } from './config';
   ],
   providers: [
     ConfigService,
-    GatewayConfigService
+    JwtConfigService,
   ],
-  exports: [ GatewayConfigService ],
+  exports: [ JwtConfigService ],
 })
-export class GatewayConfigModule {}
+export class JwtConfigModule {}
