@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 
 import { AbillsModule } from '@jump/abills';
-import { GatewayConfigModule } from '@jump/config';
+import { AbillsConfigModule, AbillsConfigService, GatewayConfigModule } from '@jump/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -12,7 +12,20 @@ import { InternetModule } from '../internet/internet.module';
   imports: [
     GatewayConfigModule,
     InternetModule,
-    AbillsModule,
+    
+    // AbillsModule.registerAsync({
+    //   imports: [ AbillsConfigModule ],
+    //   useFactory: (config: AbillsConfigService) => ({
+    //     key: config.key,
+    //     url: config.url,
+    //   }),
+    //   inject: [ AbillsConfigService ],
+    // }),
+    
+    AbillsModule.register({
+      key: 'asdasd',
+      url: 'asdas',
+    }),
   ],
   controllers: [ AppController ],
   providers: [ AppService ],
