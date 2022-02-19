@@ -11,6 +11,12 @@ module.exports = {
     node: true,
     jest: true,
   },
+  rules: {
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+  },
   ignorePatterns: ['.eslintrc.js'],
   overrides: [
     {
@@ -18,13 +24,14 @@ module.exports = {
       rules: {
         'semi': ['error', 'always'],
         'quotes': ['error', 'single'],
-        "comma-dangle": ['error', 'always-multiline'],
+        'comma-dangle': ['error', 'always-multiline'],
         'object-curly-spacing': ['error', 'always'],
         'array-bracket-spacing': ['error', 'always'],
+        '@typescript-eslint/explicit-member-accessibility': ['error'],
         '@typescript-eslint/interface-name-prefix': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/explicit-function-return-type': ['error'],
+        '@typescript-eslint/explicit-module-boundary-types': ['error'],
+        '@typescript-eslint/no-explicit-any': ['error'],
       }
     }
   ]
