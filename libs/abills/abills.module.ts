@@ -33,7 +33,7 @@ export class AbillsModule {
   ): DynamicModule {
     return {
       module: AbillsModule,
-      imports: [ HttpModule, ...options.imports ],
+      imports: [ HttpModule, ...(options.imports as any[]) ],
       providers: [
         AbillsService,
         ...this.createAbillsProviders(options),
@@ -57,6 +57,8 @@ export class AbillsModule {
         },
       ];
     }
+    
+    return [];
   }
   
   public static createAbillsOptionsProvider(
@@ -69,11 +71,15 @@ export class AbillsModule {
         provide: ABILLS_CONFIG,
       };
     }
+    
+    if (inject) {
+
+    }
   
     return {
       useFactory: async (optionsFactory: AbillsOptionsFactory) =>
         await optionsFactory.createAbillsOptions(),
-      inject: [ useExisting || useClass ],
+      inject: (useExisting) ? [ useExisting ] : (useClass) ? [ useClass ] : null || [],
       provide: ABILLS_CONFIG,
     };
   }
