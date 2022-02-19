@@ -12,7 +12,7 @@ import { Config } from './config';
   ],
   providers: [
     ConfigService,
-    GatewayConfigService
+    GatewayConfigService,
   ],
   exports: [ GatewayConfigService ],
 })
