@@ -1,15 +1,15 @@
-import { NestFactory, Reflector } from '@nestjs/core';
 import { ClassSerializerInterceptor, Logger } from '@nestjs/common';
+import { NestFactory, Reflector } from '@nestjs/core';
 
-import { GatewayConfigService } from '@jump/config';
+import { ConfigService } from '@jump/config';
 
 import { AppModule } from './app/app.module';
 
-async function bootstrap() {
+async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
-  
-  const config = app.get<GatewayConfigService>(GatewayConfigService);
-  
+
+  const config = app.get<ConfigService>(ConfigService);
+
   app.enableCors();
   app.setGlobalPrefix('api');
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
@@ -20,4 +20,4 @@ async function bootstrap() {
     `Jump API Application is running on: ${config.protocol}://${config.host}:${config.port}/${config.prefix}`,
   );
 }
-bootstrap();
+bootstrap().then(placeholder => placeholder);
