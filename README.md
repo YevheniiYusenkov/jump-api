@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://ibb.co/dBLcHJh"><img src="https://i.ibb.co/D48bjgq/logo-colored.png" width="320" alt="Jump Logo" /></a>
+  <a href="https://app.ajump.od.ua/"><img src="https://i.ibb.co/D48bjgq/logo-colored.png" width="320" alt="Jump Logo" /></a>
 </p>
 
 ## Description
