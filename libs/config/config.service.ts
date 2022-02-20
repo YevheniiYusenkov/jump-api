@@ -12,6 +12,10 @@ export class ConfigService {
   public get key(): string {
     return (this.configService.get<string | undefined>('abills.key') as string);
   }
+  
+  public get createBill(): number {
+    return (this.configService.get<number | undefined>('abills.createBill') as number);
+  }
 
   public get protocol(): string {
     return (this.configService.get<string | undefined>('gateway.protocol') as string);
@@ -21,8 +25,8 @@ export class ConfigService {
     return (this.configService.get<string | undefined>('gateway.host') as string);
   }
 
-  public get port(): string {
-    return (this.configService.get<string | undefined>('gateway.port') as string);
+  public get port(): number {
+    return (this.configService.get<number | undefined>('gateway.port') as number);
   }
 
   public get prefix(): string {
