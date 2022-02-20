@@ -24,6 +24,3 @@ export interface Plan {
   name: string,
   description?: string,
 }
-
-export type GetAbillsPlansResponse = AbillsPlan[];
-export type GetPlansResponse = Plan[];
