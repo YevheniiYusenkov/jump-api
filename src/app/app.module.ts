@@ -7,11 +7,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { InternetModule } from '../internet/internet.module';
+import { UsersModule } from '../users/users.module';
 
 @Module({
   imports: [
     ConfigModule,
     InternetModule,
+    UsersModule,
     AbillsModule.registerAsync({
       imports: [ ConfigModule ],
       useFactory: (config: ConfigService) => ({
