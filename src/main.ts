@@ -1,4 +1,4 @@
-import { ClassSerializerInterceptor, Logger } from '@nestjs/common';
+import { ClassSerializerInterceptor, Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 
 import { ConfigService } from '@jump/config';
@@ -12,6 +12,11 @@ async function bootstrap(): Promise<void> {
 
   app.enableCors();
   app.setGlobalPrefix('api');
+  app.useGlobalPipes(new ValidationPipe({
+    transform: true,
+    whitelist: true,
+    forbidUnknownValues: true,
+  }));
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
 
   await app.listen(config.port);
