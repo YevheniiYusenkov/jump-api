@@ -1,5 +1,4 @@
 import { DynamicModule, Global, Module, Provider } from '@nestjs/common';
-import { HttpModule } from '@nestjs/axios';
 
 import { AbillsService } from './abills.service';
 import { AbillsOptions, ABILLS_CONFIG } from './interfaces/abills.options.interface';
@@ -17,7 +16,6 @@ export class AbillsModule {
   ): DynamicModule {
     return {
       module: AbillsModule,
-      imports: [ HttpModule ],
       providers: [
         {
           provide: ABILLS_CONFIG,
@@ -33,7 +31,7 @@ export class AbillsModule {
   ): DynamicModule {
     return {
       module: AbillsModule,
-      imports: [ HttpModule, ...(options.imports as any[]) ],
+      imports: options.imports,
       providers: [
         AbillsService,
         ...this.createAbillsProviders(options),
