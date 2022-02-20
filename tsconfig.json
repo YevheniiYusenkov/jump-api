@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "ES2020",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "declaration": true,
     "removeComments": true,
@@ -19,6 +19,7 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": true,
     "paths": {
+      "@jump/interfaces": ["./libs/interfaces"],
       "@jump/config": ["./libs/config"],
       "@jump/abills": ["./libs/abills"]
     }
