@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { CacheModule, Module } from '@nestjs/common';
 
 import { ConfigModule, ConfigService } from '@jump/config';
 import { AbillsModule } from '@jump/abills';
@@ -16,6 +16,9 @@ import { AuthModule } from '../auth/auth.module';
     InternetModule,
     UsersModule,
     AuthModule,
+    CacheModule.register({
+      isGlobal: true,
+    }),
     AbillsModule.registerAsync({
       imports: [ ConfigModule ],
       useFactory: (config: ConfigService) => ({
