@@ -8,12 +8,14 @@ import { AppService } from './app.service';
 
 import { InternetModule } from '../internet/internet.module';
 import { UsersModule } from '../users/users.module';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [
     ConfigModule,
     InternetModule,
     UsersModule,
+    AuthModule,
     AbillsModule.registerAsync({
       imports: [ ConfigModule ],
       useFactory: (config: ConfigService) => ({
