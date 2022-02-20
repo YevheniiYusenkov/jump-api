@@ -11,6 +11,12 @@ export interface CreateUserPayload {
   confirmPassword: string,
 }
 
+export interface CreateAbillsUserPayload {
+  login: string,
+  password: string,
+  createBill?: number,
+}
+
 export interface AbillsUser {
   id: number,
 }

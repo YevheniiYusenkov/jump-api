@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import axios from 'axios';
 
-import { AbillsPlan, Plan, CreateUserPayload, AbillsUser } from '@jump/interfaces';
+import { AbillsPlan, Plan, AbillsUser, CreateAbillsUserPayload } from '@jump/interfaces';
 
 import { AbillsOptions } from './interfaces/abills.options.interface';
 
@@ -38,7 +38,11 @@ export class AbillsService {
     }));
   }
   
-  public async createUser(payload: CreateUserPayload): Promise<AbillsUser> {
-    return await this.post<AbillsUser, CreateUserPayload>('/users', payload);
+  public async createUser(payload: CreateAbillsUserPayload): Promise<AbillsUser> {
+    if (payload.createBill === undefined || payload.createBill === null) {
+      payload.createBill = this.config.createBill;
+    }
+    
+    return await this.post<AbillsUser, CreateAbillsUserPayload>('/users', payload);
   }
 }
