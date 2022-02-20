@@ -21,7 +21,8 @@
     "paths": {
       "@jump/interfaces": ["./libs/interfaces"],
       "@jump/config": ["./libs/config"],
-      "@jump/abills": ["./libs/abills"]
+      "@jump/abills": ["./libs/abills"],
+      "@jump/decorators": ["./libs/decorators"]
     }
   }
 }
