@@ -19,6 +19,7 @@ import { UsersModule } from '../users/users.module';
       useFactory: (config: ConfigService) => ({
         key: config.key,
         url: config.url,
+        createBill: config.createBill,
       }),
       inject: [ ConfigService ],
     }),
