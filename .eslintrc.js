@@ -27,7 +27,6 @@ module.exports = {
         'comma-dangle': ['error', 'always-multiline'],
         'object-curly-spacing': ['error', 'always'],
         'array-bracket-spacing': ['error', 'always'],
-        '@typescript-eslint/explicit-member-accessibility': ['error'],
         '@typescript-eslint/interface-name-prefix': 'off',
         '@typescript-eslint/explicit-function-return-type': ['error'],
         '@typescript-eslint/explicit-module-boundary-types': ['error'],
