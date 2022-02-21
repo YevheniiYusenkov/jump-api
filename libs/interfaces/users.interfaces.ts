@@ -1,6 +1,7 @@
 import { IsNumber, IsOptional, IsPhoneNumber, IsString } from 'class-validator';
 
 import { Match } from '@jump/decorators';
+import { User } from '@jump/entities';
 
 export class CreateUserDTO {
   @IsString()
@@ -50,4 +51,13 @@ export class CreateAbillsUserPayload {
 
 export interface AbillsUser {
   id: number,
+}
+
+export interface GetUserPayload {
+  id?: string,
+  username?: string,
+}
+
+export interface GetUserRequest {
+  user: User,
 }
