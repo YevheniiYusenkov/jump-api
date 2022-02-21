@@ -1,14 +1,14 @@
 import { ClassSerializerInterceptor, Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 
-import { ConfigService } from '@jump/config';
+import { GatewayConfigService } from '@jump/config';
 
 import { AppModule } from './app/app.module';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
 
-  const config = app.get<ConfigService>(ConfigService);
+  const config = app.get<GatewayConfigService>(GatewayConfigService);
 
   app.enableCors();
   app.setGlobalPrefix('api');
