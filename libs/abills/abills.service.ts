@@ -26,7 +26,7 @@ export class AbillsService {
         KEY: this.config.key,
       },
     });
-  
+
     return response.data;
   }
   
