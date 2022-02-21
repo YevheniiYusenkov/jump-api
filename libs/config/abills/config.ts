@@ -1,7 +1,7 @@
 import { registerAs } from '@nestjs/config';
 
 export const AbillsConfig = registerAs('abills', () => ({
-  url: process.env.ABILLS_URL || 'https://demo.abills.net.ua:9443/api.cgi',
+  url: process.env.ABILLS_URL,
   key: process.env.ABILLS_KEY,
-  createBill: process.env.ABILLS_CREATE_BILL || 1,
+  createBill: process.env.ABILLS_CREATE_BILL,
 }));
