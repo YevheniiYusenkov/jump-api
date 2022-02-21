@@ -2,6 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
 import { AbillsConfigService } from './config.service';
+
 import { AbillsConfig } from './config';
 
 @Global()
