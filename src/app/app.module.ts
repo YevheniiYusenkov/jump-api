@@ -1,9 +1,6 @@
 import { CacheModule, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AbillsModule } from '@jump/abills';
-import { User } from '@jump/entities';
-
 import {
   AbillsConfigModule,
   AbillsConfigService,
@@ -12,6 +9,9 @@ import {
   MysqlConfigModule,
   MysqlConfigService,
 } from '@jump/config';
+
+import { AbillsModule } from '@jump/abills';
+import { User } from '@jump/entities';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -26,13 +26,12 @@ import { AuthModule } from '../auth/auth.module';
     GatewayConfigModule,
     JwtConfigModule,
     MysqlConfigModule,
-    AbillsModule,
     InternetModule,
     UsersModule,
     AuthModule,
     TypeOrmModule.forRootAsync({
       imports: [ MysqlConfigModule ],
-      useFactory: async (config: MysqlConfigService) => ({
+      useFactory: (config: MysqlConfigService) => ({
         type: config.type,
         host: config.host,
         port: config.port,
@@ -42,14 +41,14 @@ import { AuthModule } from '../auth/auth.module';
         synchronize: config.synchronize,
         entities: [ User ],
       }),
-      inject: [ MysqlConfigModule ],
+      inject: [ MysqlConfigService ],
     }),
     CacheModule.register({
       isGlobal: true,
     }),
     AbillsModule.registerAsync({
       imports: [ AbillsConfigModule ],
-      useFactory: async (config: AbillsConfigService) => ({
+      useFactory: (config: AbillsConfigService) => ({
         key: config.key,
         url: config.url,
         createBill: config.createBill,

@@ -6,30 +6,30 @@ export class MysqlConfigService {
   public constructor(private readonly configService: ConfigService) {}
   
   public get host(): string {
-    return this.configService.get<string>('mysql.host') || '';
+    return this.configService.get<string>('mysql.host', '');
   }
   
   public get port(): number {
-    return this.configService.get<number>('mysql.port') || 0;
+    return parseInt(this.configService.get<string>('mysql.port', ''));
   }
   
   public get username(): string {
-    return this.configService.get<string>('mysql.username') || '';
+    return this.configService.get<string>('mysql.username', '');
   }
   
   public get password(): string {
-    return this.configService.get<string>('mysql.password') || '';
+    return this.configService.get<string>('mysql.password', '');
   }
   
   public get database(): string {
-    return this.configService.get<string>('mysql.database') || '';
+    return this.configService.get<string>('mysql.database', '');
   }
   
   public get synchronize(): boolean {
-    return this.configService.get<boolean>('mysql.synchronize') || true;
+    return this.configService.get<boolean>('mysql.synchronize', false);
   }
   
   public get type(): 'mysql' {
-    return this.configService.get<string>('mysql.type') as 'mysql' || 'mysql';
+    return this.configService.get<'mysql'>('mysql.type', 'mysql');
   }
 }
