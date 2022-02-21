@@ -58,6 +58,7 @@ export class User {
   @Column({
     name: 'username',
     nullable: false,
+    unique: true,
   })
   username: string;
   
